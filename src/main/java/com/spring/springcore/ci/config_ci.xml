@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ 
+ <!-- This is our bean  -->
+ 
+ <bean name="cer" class="com.spring.springcore.ci.Certi">
+ <constructor-arg value="PAMMY" />
+ </bean>
+ 
+ 	<bean name="person" class="com.spring.springcore.ci.Person">
+ 	<constructor-arg value="Saurabh Kumar Jha" />
+ 	<constructor-arg value="2135917" type="int" />
+ 	<constructor-arg ref="cer" />
+	 	<constructor-arg>
+		 	<list>
+			 	<value>Vinayak</value>
+			 	<value>Mausam</value>
+			 	<value>Bhaskar</value>
+		 	</list>
+	 	</constructor-arg>
+ 	</bean>
+ 	
+ 	<bean name="add" class="com.spring.springcore.ci.Addition">
+ 		<constructor-arg value="12" type="int" index="1"/>
+ 		<constructor-arg value="13" type="int" index="0"/>
+ 		
+ 		
+ 	</bean>
+ 	
+ </beans>
