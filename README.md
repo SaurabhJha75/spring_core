@@ -149,8 +149,7 @@ So let's create an XML configuration file, book-bean-config.xml, and define bean
 ## Ways of Injecting Dependencies
 
 *Dependency Injection Practical Explanation*: 
-You can understand the whole explanation of dependecy injection from given image.
-![pic_1](https://github.com/SaurabhJha75/spring_core/assets/59827666/f0ab886d-2da2-4fc5-a44c-133451f11f60)
+You can understand the whole explanation of dependecy injection from given image (pic_1.jpg) in project directory.
 
 ### Dependency injection can be done in two ways.
 1. Using Setter Injection
