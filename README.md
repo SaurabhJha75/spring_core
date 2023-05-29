@@ -275,3 +275,80 @@ public class App
 }
 
 ```
+
+### What is Configuration File
+>Configuration file is an **xml** files where we declare beans and its dependency.
+```xml
+<beans>
+  <bean>
+
+      </bean>
+        </beans>
+```
+**IoC dependencies injection handles the three types of data type**
+
+1. *Primitive data type*
+
+      Byte, short, char, int, float, double, long, boolean.
+2. *Collection data type*
+
+      List, Set, Map and Properties
+3. *Reference data type*
+
+      It is a non-primitive data type or user defined datatypes (Other class object).
+
+> We can inject the using 'p' schema.
+
+*Syntax*
+```xml
+1. <bean p:property: value />
+2. <property name="" value="" />
+3. <property name="">
+        <value>Value</value>
+    </property>
+```
+### How to inject collection data type dependencies in configuration file.
+**List**
+```xml
+<bean>
+  <property name="">
+    <list>
+        <value>value1</value>
+        <value>value2</value>
+    </list>
+  <property>
+</bean>
+```
+**Set**
+```xml
+<bean>
+  <property name="">
+    <set>
+        <value>value1</value>
+        <value>value2</value>
+    </set>
+  </property>
+</bean>
+```
+**Map**
+```xml
+<bean>
+  <property name="">
+    <map>
+      <entry key="Java" value="2 Mothns" />
+      <entry key="Spring boot" value="3 Mothns"/>
+    </map>
+  </property>
+</bean>
+```
+**Properties**
+```xml
+<bean>
+  <property name="">
+    <props>
+      <prop key="name">Saurabh</prop>
+      <prop key="name">Youtube</prop>
+    </props>
+  </property>
+</bean>
+```
