@@ -155,3 +155,123 @@ You can understand the whole explanation of dependecy injection from given image
 1. Using Setter Injection
 2. Using Constructor Injection
 
+## Dependency Injection by Setter method
+We can inject the dependency by setter method also. The **Property** tag subelement of **Bean** tag is used for setter injection. 
+
+Here we can inject the value three types of data type
+
+- Primitive and String-based values
+- Dependent object (contained object)
+- Collection values etc.
+
+>In Setter Injection method when IoC container creates the object of the **Student** class then it will call the setter method of the **Student** class.
+
+### Let's see the emaxple
+
+**Student.java**
+```java
+package com.spring.springcore;
+
+public class Student {
+	
+	private int studentId;
+	private String StudentName;
+	private String studentAddress;
+	
+	public int getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
+	public String getStudentName() {
+		return StudentName;
+	}
+	public void setStudentName(String studentName) {
+		StudentName = studentName;
+	}
+	public String getStudentAddress() {
+		return studentAddress;
+	}
+	public void setStudentAddress(String studentAddress) {
+		this.studentAddress = studentAddress;
+	}
+	
+	public Student(int studentId, String studentName, String studentAddress) {
+		super();
+		this.studentId = studentId;
+		StudentName = studentName;
+		this.studentAddress = studentAddress;
+	}
+	
+	public Student() {
+		super();
+	}
+	
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", StudentName=" + StudentName + ", studentAddress=" + studentAddress
+				+ "]";
+	}
+}
+
+```
+**config.java**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+-<beans xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+
+<!-- This is our bean -->
+
+-<bean name="student1" class="com.spring.springcore.Student">
+
+<property name="studentId" value="154239"/>
+
+<property name="StudentName">
+    <value>Saurabh Kumar Jha</value>
+</property>
+
+<property name="studentAddress">
+    <value>Kolkata</value>
+</property>
+
+</bean>
+
+<bean name="student2" class="com.spring.springcore.Student">
+
+<property name="studentId" value="204385"/>
+
+<property name="StudentName" value="John Wick"/>
+
+<property name="studentAddress" value="Banglore"/>
+
+</bean>
+
+</beans>
+
+```
+**App.java**
+```java
+package com.spring.springcore;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        
+        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        Student student1 = (Student) context.getBean("student1");
+
+        Student student2 = (Student) context.getBean("student2");
+        
+        System.out.println(student2);
+        System.out.println(student1);
+    }
+}
+
+```
